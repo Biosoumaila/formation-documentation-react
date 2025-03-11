@@ -21,6 +21,42 @@ const products = [
   { title: 'Fruit de Dragon', isFruit: false, id: 5 },
 ];
 
+export const moyen = {
+  name: 'moto',
+  theme: {
+    backgroundColor: 'none',
+    color: 'pink'
+  },
+  desc: 'moyen de deplacement pour une courte distance'
+};
+
+export const moyen1 = {
+  name: 'voiture ',
+  theme: {
+    backgroundColor: 'yellow',
+    color: 'pink'
+  },
+  desc: 'moyen de deplacement pour une courte distance'
+};
+
+export const moyen2 = {
+  name: 'Prado derniere version',
+  theme: {
+    backgroundColor: 'green',
+    color: 'pink'
+  },
+  desc: 'voyager du nord au sud de lest a west'
+};
+
+export const moyen3 = {
+  name: 'moyen 3',
+  theme: {
+    backgroundColor: 'rouge',
+    color: 'pink'
+  },
+  desc: 'moyen de deplacement pour une courte distance le plaisir de voyager avec la prado'
+};
+
 export function MyButton({ count, onClick }) {
   // const [count, setCount] = useState(0);
   // function handleClick() {
@@ -143,24 +179,48 @@ export function Profile() {
 export function Gallery() {
   return (
     <>
-      <section>
+      <section style={{ display: 'inline-table' }}>
         <h1 style={{ backgroundColor: 'blue', textDecoration: 'underline', textSizeAdjust: 'auto' }}>liste des voitures</h1>
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
+        <div style={{ backgroundColor: 'green' }}><Profile /><strong style={{ color: 'yellow' }}>{moyen1.name}</strong><hr />{moyen1.desc}</div>
+        <div style={{ backgroundColor: 'orange' }}><Profile /><strong style={{ color: 'black' }}>{moyen2.name}</strong><hr />{moyen2.desc}</div>
+        <div style={{ backgroundColor: 'yellow' }}><Profile /><strong style={{ color: 'pink' }}>{moyen3.name}</strong><hr />{moyen3.desc}</div>
+        <div style={{ backgroundColor: 'red' }}><Profile /><strong style={{ color: 'green' }}>{moyen.name}</strong><hr />{moyen.desc}</div>
       </section>
     </>
+  );
+}
+
+export function TodoList() {
+  return (
+    // <>
+    <div style={moyen.theme}>
+
+      <h1>Liste de tache {moyen.name} </h1>
+      <img
+        src='/src/assets/kawa.jpeg'
+        alt='kawasaki'
+        className="photo"
+      />
+      <ul>
+        <li>Course a Moto</li>
+        <li>Prier</li>
+        <li>Dormir</li>
+        <li>Coder</li>
+      </ul>
+    </div>
+
+    // </>
   );
 }
 
 function App() {
   return (
     <div>
-      <ShoppingList />
+      {/* <ShoppingList /> */}
       {/* <MyButton /> */}
       {/* <MyApp /> */}
       <Gallery />
+      {/* <TodoList /> */}
     </div>
 
   )
