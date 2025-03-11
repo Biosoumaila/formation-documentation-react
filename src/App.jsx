@@ -21,14 +21,14 @@ const products = [
   { title: 'Fruit de Dragon', isFruit: false, id: 5 },
 ];
 
-export function MyButton() {
-  const [count, setCount] = useState(0);
-  function handleClick() {
-    setCount(count + 1);
-  }
+export function MyButton({ count, onClick }) {
+  // const [count, setCount] = useState(0);
+  // function handleClick() {
+  //   setCount(count + 1);
+  // }
 
   return (
-    <button onClick={handleClick}>Clique {count} fois</button>
+    <button onClick={onClick}>Clique {count} fois</button>
   );
 }
 
@@ -112,11 +112,32 @@ export function ShoppingList() {
   </>);
 }
 
+export function MyApp() {
+
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <div>
+      <h1> Des compteurs synchonises</h1>
+      <MyButton count={count} onClick={handleClick} />
+      <MyButton count={count} onClick={handleClick} />
+    </div>
+  );
+
+}
+
+
+
 function App() {
   return (
     <div>
       <ShoppingList />
-      <MyButton />
+      {/* <MyButton /> */}
+      <MyApp />
     </div>
 
   )
