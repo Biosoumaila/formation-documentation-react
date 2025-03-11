@@ -13,6 +13,14 @@ const user = {
 
 };
 
+const products = [
+  { title: 'Chou', isFruit: false, id: 1 },
+  { title: 'Ail', isFruit: true, id: 2 },
+  { title: 'Gingembre', isFruit: false, id: 3 },
+  { title: 'Pomme', isFruit: true, id: 4 },
+  { title: 'Fruit de Dragon', isFruit: false, id: 5 },
+];
+
 export function MyButton() {
   // const [count, setCount] = useState(0)
 
@@ -73,13 +81,6 @@ export function Conditionnel() {
 
 
 export function AfficherListe() {
-  const products = [
-    { title: 'Chou', id: 1 },
-    { title: 'Ail', id: 2 },
-    { title: 'Gingembre', id: 3 },
-    { title: 'Pomme', id: 4 },
-    { title: 'Fruit de Dragon', id: 5 },
-  ];
 
   // const [count, setCount] = useState(0)
   const listItems = <p className='liste-product'> {products.map(product => (<div key={product.id}>{product.title}</div>))}</p>
@@ -87,19 +88,33 @@ export function AfficherListe() {
   return (
     <>
       <div>
-        <h1>Les produits disponibles sont:</h1>
-        {listItems}
+        <h1 style={{ backgroundColor: 'blue', color: 'yellowgreen', textDecoration: 'underline' }}>Les produits disponibles sont:</h1>
+        <p>        {listItems}</p>
       </div>
 
     </>
   )
 }
 
+export function ShoppingList() {
+  const listItems = products.map(product => (<li key={product.id} style={{
+    color: product.isFruit ? 'magenta' : 'darkolivegreen'
+  }}>
+    {product.title}
+  </li>));
+  return (<>
+    <h1 style={{ textDecoration: 'underline', backgroundColor: 'orangered' }}><strong>Liste des fruits avec couleur</strong></h1>
+
+    <ul>{listItems}</ul>
+  </>);
+}
+
 function App() {
   return (
     <div>
-      <AfficherListe />
+      <ShoppingList />
     </div>
+
   )
 }
 
