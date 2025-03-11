@@ -22,11 +22,14 @@ const products = [
 ];
 
 export function MyButton() {
-  // const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  function handleClick() {
+    setCount(count + 1);
+  }
 
   return (
-    <button>Click moi</button>
-  )
+    <button onClick={handleClick}>Clique {count} fois</button>
+  );
 }
 
 export function AboutPage() {
@@ -113,6 +116,7 @@ function App() {
   return (
     <div>
       <ShoppingList />
+      <MyButton />
     </div>
 
   )
