@@ -131,13 +131,36 @@ export function MyApp() {
 }
 
 
+export function Profile() {
+  return (
+    <img
+      src="/src/assets/land.jpeg"
+      alt="une voiture de reve"
+    />
+  );
+}
+
+export function Gallery() {
+  return (
+    <>
+      <section>
+        <h1 style={{ backgroundColor: 'blue', textDecoration: 'underline', textSizeAdjust: 'auto' }}>liste des voitures</h1>
+        <Profile />
+        <Profile />
+        <Profile />
+        <Profile />
+      </section>
+    </>
+  );
+}
 
 function App() {
   return (
     <div>
       <ShoppingList />
       {/* <MyButton /> */}
-      <MyApp />
+      {/* <MyApp /> */}
+      <Gallery />
     </div>
 
   )
